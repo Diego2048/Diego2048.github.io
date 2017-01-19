@@ -3,16 +3,90 @@
 <head>
 <meta charset="UTF-8">
 <title>黄征俊的网站</title>
-</head>
-<body>
-	<h1 id="id_h1">你好，欢迎来到我的地盘</h1>
-	<p>系统正在完善中...</p>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/responsive-nav.js/1.12/responsive-nav.min.css" rel="stylesheet">
+<link href="css/homepage.css" rel="stylesheet">
 
+</head>
+<body class="container">
+	<div  role="navigation"  id="nav">
+	  <ul>
+	    <li id="id_link_home"><a href="javascript:void(0)" onclick="switchDiv('home')">首页</a></li>
+	    <li id="id_link_about"><a href="javascript:void(0)" onclick="switchDiv('about')">关于</a></li>
+	    <li id="id_link_projects"><a href="javascript:void(0)" onclick="switchDiv('projects')">我的项目</a></li>
+	    <li id="id_link_contact"><a href="javascript:void(0)" onclick="switchDiv('contact')">联系我</a></li>
+	  </ul>
+	</div>
+	<div role="main" class="main" id = "id_home_main">
+		<h1 id="id_h1">welcome to my website</h1>
+		<p>this website is building , please forward this website .</p>
+	</div>
+	<div role="main" class="main"  id="id_home_about" style="display: none;">
+		<h3>我的CSDN博客：http://blog.csdn.net/u010750497</h3>
+	</div>
+	<div role="main" class="main"  id="id_home_projects" style="display: none;">
+		<h3>正在完善中</h3>
+	
+	</div>
+	<div role="main" class="main"  id="id_home_contact" style="display: none;">
+		<h3>我的邮箱:huangzhengj@foxmail.com</h3>
+	</div>
+
+<script src="//cdn.bootcss.com/responsive-nav.js/1.12/responsive-nav.min.js"></script>
+<!-- 将下面这段代码放置在 </body> 之前 -->
+<script>
+	var navigation = responsiveNav("#nav", { // Selector: The ID of the wrapper
+	  animate: true, // Boolean: 是否启动CSS过渡效果（transitions）， true 或 false
+	  transition: 400, // Integer: 过渡效果的执行速度，以毫秒（millisecond）为单位
+	  label: "Menu", // String: Label for the navigation toggle
+	  insert: "after", // String: Insert the toggle before or after the navigation
+	  customToggle: "", // Selector: Specify the ID of a custom toggle
+	  openPos: "relative", // String: Position of the opened nav, relative or static
+	  jsClass: "js", // String: 'JS enabled' class which is added to <html> el
+	  debug: false, // Boolean: Log debug messages to console, true 或 false
+	  init: function(){}, // Function: Init callback
+	  open: function(){}, // Function: Open callback
+	  close: function(){} // Function: Close callback
+	});	
+</script>
 </body>
 <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
-	function myOnLoad(){
-		$("#id_h1").html("welcome to my website!!");
+	function hideDiv(){
+		$("#id_home_main").css("display","none");
+		$("#id_home_about").css("display","none");
+		$("#id_home_projects").css("display","none");
+		$("#id_home_contact").css("display","none");
 	}
+	function switchDiv(flag){
+		switch(flag){
+		case 'home':{
+			hideDiv();
+			$("#id_home_main").css("display","block");
+			break;
+		}
+		case 'about':{
+			hideDiv();
+			$("#id_home_about").css("display","block");
+			break;
+		}
+		case 'projects':{
+			hideDiv();
+			$("#id_home_projects").css("display","block");
+			break;
+		}
+		case 'contact':{
+			hideDiv();
+			$("#id_home_contact").css("display","block");
+			break;
+		}
+		default:break;
+		
+		}
+	}
+	
 </script>
 </html>
