@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
+  <title>黄征俊的网站</title>
+  
 <body>
-<h1>Hi 欢迎来到我的网站</h1>
+<h1 id = "id_h1">Hi 欢迎来到我的网站</h1>
 <p>不管你是谁,你能来到这个网站,说明你很有缘分</p>
 </body>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/core.js"></script>
+  <script >
+    function myOnLoad(){
+      $('id_h1').html('welcome to my website');
+    }
+    myOnLoad();
+  </script>
 </html>
