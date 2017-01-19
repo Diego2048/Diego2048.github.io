@@ -270,7 +270,7 @@ a:active, a:hover {
 	    <li id="id_link_contact"><a href="javascript:void(0)" onclick="switchDiv('contact')">联系我</a></li>
 	  </ul>
 	</div>
-	<div role="main" class="main" id = "id_home_main">
+	<div role="main" class="main" id = "id_home_home">
 		<h1 id="id_h1">welcome to my website</h1>
 		<p>this website is building , please forward this website .</p>
 	</div>
@@ -307,37 +307,25 @@ a:active, a:hover {
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
+	/*hide all the div , and let all the link be inactive*/
 	function hideDiv(){
-		$("#id_home_main").css("display","none");
+		$("#id_home_home").css("display","none");
 		$("#id_home_about").css("display","none");
 		$("#id_home_projects").css("display","none");
 		$("#id_home_contact").css("display","none");
+		$("#id_link_home").removeClass("active");
+		$("#id_link_about").removeClass("active");
+		$("#id_link_projects").removeClass("active");
+		$("#id_link_contact").removeClass("active");
 	}
+	/*show the specific div,and let the specific link be active*/
+	function showDiv(flag){
+		$("#id_home_"+flag).css("display","block");
+		$("#id_link_"+flag).addClass("active");
+	}
+	/*switch the main box div*/
 	function switchDiv(flag){
-		switch(flag){
-		case 'home':{
-			hideDiv();
-			$("#id_home_main").css("display","block");
-			break;
-		}
-		case 'about':{
-			hideDiv();
-			$("#id_home_about").css("display","block");
-			break;
-		}
-		case 'projects':{
-			hideDiv();
-			$("#id_home_projects").css("display","block");
-			break;
-		}
-		case 'contact':{
-			hideDiv();
-			$("#id_home_contact").css("display","block");
-			break;
-		}
-		default:break;
-		
-		}
+		hideDiv();showDiv(flag);
 	}
 	
 </script>
